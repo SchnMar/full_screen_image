@@ -3,16 +3,19 @@ library full_screen_image;
 import 'package:flutter/material.dart';
 
 class FullScreenWidget extends StatelessWidget {
-  FullScreenWidget(
-      {@required this.child,
-      this.backgroundColor = Colors.black,
-      this.backgroundIsTransparent = true,
-      this.disposeLevel});
+  FullScreenWidget({
+    @required this.child,
+    this.backgroundColor = Colors.black,
+    this.backgroundIsTransparent = true,
+    this.disposeLevel,
+    this.onDoubleTap,
+  });
 
   final Widget child;
   final Color backgroundColor;
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
+  final Function onDoubleTap;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +34,7 @@ class FullScreenWidget extends StatelessWidget {
                     backgroundColor: backgroundColor,
                     backgroundIsTransparent: backgroundIsTransparent,
                     disposeLevel: disposeLevel,
+                    onDoubleTap: onDoubleTap,
                   );
                 }));
       },
@@ -42,16 +46,19 @@ class FullScreenWidget extends StatelessWidget {
 enum DisposeLevel { High, Medium, Low }
 
 class FullScreenPage extends StatefulWidget {
-  FullScreenPage(
-      {@required this.child,
-      this.backgroundColor = Colors.black,
-      this.backgroundIsTransparent = true,
-      this.disposeLevel = DisposeLevel.Medium});
+  FullScreenPage({
+    @required this.child,
+    this.backgroundColor = Colors.black,
+    this.backgroundIsTransparent = true,
+    this.disposeLevel = DisposeLevel.Medium,
+    this.onDoubleTap,
+  });
 
   final Widget child;
   final Color backgroundColor;
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
+  final Function onDoubleTap;
 
   @override
   _FullScreenPageState createState() => _FullScreenPageState();
@@ -130,13 +137,16 @@ class _FullScreenPageState extends State<FullScreenPage> {
         positionYDelta = 0;
       });
 
-      Future.delayed(animationDuration).then((_){
+      Future.delayed(animationDuration).then((_) {
         setState(() {
           animationDuration = Duration.zero;
         });
       });
     }
+  }
 
+  _closeWithoutDrag() {
+    Navigator.of(context).pop();
   }
 
   @override
@@ -149,6 +159,8 @@ class _FullScreenPageState extends State<FullScreenPage> {
         onVerticalDragStart: (details) => _startVerticalDrag(details),
         onVerticalDragUpdate: (details) => _whileVerticalDrag(details),
         onVerticalDragEnd: (details) => _endVerticalDrag(details),
+        onTap: () => _closeWithoutDrag(),
+        onDoubleTap: widget.onDoubleTap,
         child: Container(
           color: widget.backgroundColor.withOpacity(opacity),
           constraints: BoxConstraints.expand(
