@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5ca730b-1b57-429d-82b9-18542789e561" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/full_screen_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/full_screen_image.dart" afterDir="false" />
     </list>
@@ -59,6 +57,14 @@
       <option name="presentableId" value="Default" />
       <updated>1580804449539</updated>
     </task>
+    <task id="LOCAL-00001" summary="added on tap gesture and doubletap Callback">
+      <created>1594467316241</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594467316241</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -74,10 +80,30 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added on tap gesture and doubletap Callback" />
+    <option name="LAST_COMMIT_MESSAGE" value="added on tap gesture and doubletap Callback" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="-1626" y="294" key="CommitChangelistDialog2" timestamp="1594467315300">
+      <screen x="-2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="-1626" y="294" key="CommitChangelistDialog2/-2560.0.2560.1400/0.0.2560.1400@-2560.0.2560.1400" timestamp="1594467315300" />
+    <state x="-2312" y="122" key="DiffContextDialog" timestamp="1594467289830">
+      <screen x="-2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="-2312" y="122" key="DiffContextDialog/-2560.0.2560.1400/0.0.2560.1400@-2560.0.2560.1400" timestamp="1594467289830" />
     <state x="-1779" y="342" key="SettingsEditor" timestamp="1594467063094">
       <screen x="-2560" y="0" width="2560" height="1400" />
     </state>
     <state x="-1779" y="342" key="SettingsEditor/-2560.0.2560.1400/0.0.2560.1400@-2560.0.2560.1400" timestamp="1594467063094" />
+    <state x="-1688" y="432" key="Vcs.Push.Dialog.v2" timestamp="1594467318912">
+      <screen x="-2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="-1688" y="432" key="Vcs.Push.Dialog.v2/-2560.0.2560.1400/0.0.2560.1400@-2560.0.2560.1400" timestamp="1594467318912" />
+    <state x="-1583" y="432" width="606" height="536" key="find.popup" timestamp="1594467643282">
+      <screen x="-2560" y="0" width="2560" height="1400" />
+    </state>
+    <state x="-1583" y="432" width="606" height="536" key="find.popup/-2560.0.2560.1400/0.0.2560.1400@-2560.0.2560.1400" timestamp="1594467643282" />
   </component>
 </project>
