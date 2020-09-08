@@ -9,6 +9,8 @@ class FullScreenWidget extends StatelessWidget {
     this.backgroundIsTransparent = true,
     this.disposeLevel,
     this.onDoubleTap,
+    this.onSwipeRight,
+    this.onSwipeLeft,
   });
 
   final Widget child;
@@ -16,6 +18,8 @@ class FullScreenWidget extends StatelessWidget {
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
   final Function onDoubleTap;
+  final Function onSwipeRight;
+  final Function onSwipeLeft;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,8 @@ class FullScreenWidget extends StatelessWidget {
                     backgroundIsTransparent: backgroundIsTransparent,
                     disposeLevel: disposeLevel,
                     onDoubleTap: onDoubleTap,
+                    onSwipeLeft: onSwipeLeft,
+                    onSwipeRight: onSwipeRight,
                   );
                 }));
       },
@@ -52,6 +58,8 @@ class FullScreenPage extends StatefulWidget {
     this.backgroundIsTransparent = true,
     this.disposeLevel = DisposeLevel.Medium,
     this.onDoubleTap,
+    this.onSwipeRight,
+    this.onSwipeLeft,
   });
 
   final Widget child;
@@ -59,6 +67,8 @@ class FullScreenPage extends StatefulWidget {
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
   final Function onDoubleTap;
+  final Function onSwipeRight;
+  final Function onSwipeLeft;
 
   @override
   _FullScreenPageState createState() => _FullScreenPageState();
@@ -160,6 +170,14 @@ class _FullScreenPageState extends State<FullScreenPage> {
         onVerticalDragEnd: (details) => _endVerticalDrag(details),
         onTap: () => _closeWithoutDrag(),
         onDoubleTap: widget.onDoubleTap,
+        onPanUpdate: (details) {
+          if (details.delta.dx > 0) {
+            // swiping in right direction
+            widget.onSwipeLeft();
+          } else if (details.delta.dx < 0) {
+            widget.onSwipeRight();
+          }
+        },
         child: Container(
           color: widget.backgroundColor.withOpacity(opacity),
           constraints: BoxConstraints.expand(
